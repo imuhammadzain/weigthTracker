@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "793520803720",
+    "project_id": "weight-recorder-e4f02",
+    "storage_bucket": "weight-recorder-e4f02.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:793520803720:android:d028009a3ff8df66d6343d",
+        "android_client_info": {
+          "package_name": "com.example.weightrecorder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "793520803720-vl64slaj66325o55fjtvj9ovrnsj471i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACgQ-sk1JT_F2DCQhPVWQ_RoOH8cv4SQM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "793520803720-vl64slaj66325o55fjtvj9ovrnsj471i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
