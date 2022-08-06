@@ -1,11 +1,17 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:weightrecorder/mobile/Home/addweight.dart';
 import 'package:weightrecorder/mobile/Home/widgets.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
 
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     final user = FirebaseAuth.instance.currentUser!;
@@ -22,20 +28,16 @@ class Home extends StatelessWidget {
           ),
           Align(
               alignment: Alignment.bottomRight,
-              child: SizedBox(
-                height: 50,
-                width: 50,
-                child: FloatingActionButton(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(5)),
-                  backgroundColor: const Color.fromARGB(255, 4, 153, 58),
-                  elevation: 25,
-                  onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const Addweight()));
-                  },
-                  child: const Icon(Icons.add),
-                ),
+              child: InkWell(
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const Addweight()));
+                },
+                child: Container(
+                    color: Colors.green,
+                    height: 50,
+                    width: 50,
+                    child: const Icon(Icons.add)),
               )),
           Align(
               alignment: Alignment.bottomLeft,
@@ -55,4 +57,10 @@ class Home extends StatelessWidget {
       ),
     );
   }
+
+  Stream<List<User>> readUsers() => FirebaseFirestore.instance
+      .collection('Users')
+      .snapshots()
+      .map((snapshot) =>
+          snapshot.docs.map<User>((doc) => User.fromJson(doc.data())).toList());
 }

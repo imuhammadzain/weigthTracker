@@ -82,7 +82,7 @@ class _AddweightState extends State<Addweight> {
   Future createUser(User user) async {
     final docUser = FirebaseFirestore.instance.collection('Users').doc();
     user.id = docUser.id;
-    final json = user.toJason();
+    final json = user.toJson();
     await docUser.set(json);
   }
 }
